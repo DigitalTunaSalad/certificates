@@ -3,7 +3,16 @@
 echo "Creating root folder structure"
 cd ..
 # root directory
-if test -d root/ca then
+if [ -d "root" ]; then
+    echo "root already exists..."
+else
+    echo "Creating root..."
+    mkdir root
+    echo "root created"
+fi
+
+# root/ca directory
+if [ -d "root/ca" ]; then
     echo "root/ca already exists..."
 else
     echo "Creating root/ca..."
@@ -13,15 +22,15 @@ fi
 # change the directory to root/ca
 cd root/ca
 # directory for certificates
-if test -d certs then
+if [ -d "certs" ]; then
     echo "root/ca/certs already exists..."
 else
     echo "Creating root/ca/certs..."
     mkdir certs
     echo "root/ca/certs created"
 fi 
-# directory for lol
-if test -d crl then
+# directory for crl
+if [ -d "crl" ]; then
    echo "root/ca/crl already exists..." 
 else
     echo "Creating root/ca/certs..."
@@ -29,7 +38,7 @@ else
     echo "root/ca/certs created"
 fi
 # directory for new certificates
-if test -d newcerts then
+if [ -d "newcerts" ]; then
     echo "root/ca/newcerts already exists..." 
 else
     echo "Creating root/ca/newcerts..."
@@ -38,21 +47,21 @@ else
 
 fi
 # directory for private keys
-if test -d private then
+if [ -d "private" ]; then
     echo "root/ca/private already exists..." 
 else
     echo "Creating root/ca/private..."
     mkdir private
     echo "root/ca/private created"
     # changes the rights of the private key folder (owner can read, write and execute)
-    chmod 700 private
+    # chmod 700 private
 fi
 # creates a new index file if it dosn't exist
 test -f index.txt || touch index.txt
 # Seeds the serial file if no serial file exist
 test -f serial || echo 1000 > serial
 # downloads the config if it doesn't exist
-if test -f openssl.cfg then 
+if [ -f "openssl.cfg" ]; then 
     echo "root/ca/openssl.cfg already exists..." 
 else
     echo "Downloading root/ca/openssl.cfg..."
@@ -61,5 +70,3 @@ else
 fi
 
 echo "Remember to modify the /root/ca/openssl.cfg file."
-
-cd scripts
