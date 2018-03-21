@@ -8,7 +8,7 @@ cd ../root/ca
 # Create the root certificate
 openssl req -config $config \
     -key $key \
-    -new -509 -days 7300 -sha256 -extensions v3_ca \
+    -new -x509 -days 7300 -sha256 -extensions v3_ca \
     -out $filename
 chmod 444 $filename
 # Verify the root certificate
