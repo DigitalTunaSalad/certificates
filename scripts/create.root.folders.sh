@@ -65,7 +65,7 @@ if [ -f "openssl.cfg" ]; then
     echo "root/ca/openssl.cfg already exists..." 
 else
     echo "Downloading root/ca/openssl.cfg..."
-    curl -o openssl.cfg https://gist.githubusercontent.com/DigitalTunaSalad/57a710bea63632b53dd15ef463ac97d7/raw/0c75e36642bc907634ba559168d18a7de2eebf37/openssl.cfg
+    curl -o openssl.cfg https://gist.githubusercontent.com/DigitalTunaSalad/57a710bea63632b53dd15ef463ac97d7/raw/30e14bd76ac5619ec136f5d54b46999e1f3fc4d7/openssl.cfg
     echo "Download complete"
 fi
 # creates the .rnd file.

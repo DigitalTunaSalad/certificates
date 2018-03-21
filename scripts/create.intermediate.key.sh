@@ -1,4 +1,4 @@
-name=${1:-ca.key.pem}
+name=${1:-intermediate.key.pem}
 cd ../root/ca
 export RANDFILE="$PWD/private/.rnd"
 openssl genrsa -aes256 -out intermediate/private/$name 4096
